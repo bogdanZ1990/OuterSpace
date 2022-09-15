@@ -120,17 +120,17 @@ async function renderMarsPics(){
         const img = createImg();
 
         a.innerText = obj.id;
-    img.src = obj.img_src;
-    img.style.width = '100%';
-    img.style.height = '100%';
+        img.src = obj.img_src;
+        img.style.width = '100%';
+        img.style.height = '100%';
 
-    li.appendChild(a);
-    li.addEventListener('click', () => {
-        clearCont([main()]);
-        main().appendChild(img);
-    })
+        li.appendChild(a);
+        li.addEventListener('click', () => {
+            clearCont([main()]);
+            main().appendChild(img);
+        })
 
-    sideInfo().appendChild(li);
+        sideInfo().appendChild(li);
     })
 }
 
@@ -144,7 +144,7 @@ async function renderAsteroidsToSide(){
             li.classList.add('hazardous');
         }
         li.addEventListener('click', () => {
-            renderAsteroidToMain(obj)
+            renderAsteroidToMain(obj);
         })
         sideNav().appendChild(li);
     })
@@ -162,7 +162,7 @@ function renderAsteroidToMain(obj){
     h2.innerText =`-Name: ${obj.name}`;
     li.innerText = `-Absolute magnitude: ${obj.absolute_magnitude_h}`;
     li2.innerText = `-Estimated diamater max: ${obj.estimated_diameter.miles.estimated_diameter_max} miles
-    -Estimated diamater min: ${obj.estimated_diameter.miles.estimated_diameter_min} miles`
+    -Estimated diamater min: ${obj.estimated_diameter.miles.estimated_diameter_min} miles`;
     if(obj.is_potentially_hazardous_asteroid){
         li3.innerText = 'POTENTIALLY HAZARDOUS!';
         li3.style.color = 'red';
@@ -182,7 +182,7 @@ function renderAsteroidToMain(obj){
 
     clearCont([main()]);
     li4.appendChild(ul);
-    main().append(h2, li3, li, li2, li4)
+    main().append(h2, li3, li, li2, li4);
 }
 
 function dangerousAsteroids(danger){
@@ -206,7 +206,6 @@ function addButton(){
     button.addEventListener('click', () => {
         danger = !danger;
         dangerousAsteroids(danger);
-
     })
     sideNav().append(span, button);
 }
