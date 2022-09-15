@@ -42,9 +42,13 @@ setInterval(liveTime, 1000);
 
 // ASTRONOMY PIC OF THE DAY
 async function fetchAstroPicData(){
-    const response = await fetch('https://api.nasa.gov/planetary/apod?api_key=fD1szVroHVtYYnbqRjAy1rEguJLo6FgL5S0SFd10');
-    const data = await response.json();
-    return data;
+    try {
+        const response = await fetch('https://api.nasa.gov/planetary/apod?api_key=fD1szVroHVtYYnbqRjAy1rEguJLo6FgL5S0SFd10');
+        const data = await response.json();
+        return data;
+    } catch (err){
+        console.log(err);
+    }
 }
 
 
@@ -56,16 +60,24 @@ async function fetchAstroPicData(){
 
 // MARS ROVERS PICTURES
 async function fetchMarsData(){
-    const response = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/latest_photos?api_key=fD1szVroHVtYYnbqRjAy1rEguJLo6FgL5S0SFd10`)
-    const data = await response.json();
-    return data;
+    try {
+        const response = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/latest_photos?api_key=fD1szVroHVtYYnbqRjAy1rEguJLo6FgL5S0SFd10`)
+        const data = await response.json();
+        return data;
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 // CLOSEST ASTEROIDS TO EARTH
 async function fetchAsteroidsData(){
-    const resp = await fetch('https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=fD1szVroHVtYYnbqRjAy1rEguJLo6FgL5S0SFd10')
-    const data = await resp.json();
-    return data;
+    try {
+        const resp = await fetch('https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=fD1szVroHVtYYnbqRjAy1rEguJLo6FgL5S0SFd10')
+        const data = await resp.json();
+        return data;
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 
